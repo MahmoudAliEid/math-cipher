@@ -70,7 +70,7 @@ export default function CipherCalculator() {
                                         <Hash className="w-5 h-5 text-primary" />
                                         الخطوة 1: الخرائط الأولية والقيمة
                                     </CardTitle>
-                                    <CardDescription className="text-ltr">Vn = (n/10) × n</CardDescription>
+                                    <CardDescription className="text-ltr">Vn = (n/L) × n</CardDescription>
                                 </CardHeader>
                                 <CardContent>
                                     <ScrollArea className="w-full">
@@ -89,7 +89,7 @@ export default function CipherCalculator() {
                                                         <TableCell className="font-mono text-muted-foreground">{step.index}</TableCell>
                                                         <TableCell className="font-bold text-lg">{step.char}</TableCell>
                                                         <TableCell><Badge variant="outline" className="text-[10px]">{step.normalizedChar}</Badge></TableCell>
-                                                        <TableCell className="text-left font-semibold text-primary font-mono">{step.v1.toFixed(1)}</TableCell>
+                                                        <TableCell className="text-left font-semibold text-primary font-mono">{step.v1.toFixed(3)}</TableCell>
                                                     </TableRow>
                                                 ))}
                                             </TableBody>
@@ -114,7 +114,7 @@ export default function CipherCalculator() {
                                             <div key={char} className="flex items-center gap-2 bg-primary/5 border border-primary/10 px-4 py-2 rounded-full">
                                                 <span className="text-lg font-bold">{char}</span>
                                                 <Separator orientation="vertical" className="h-4 bg-primary/20" />
-                                                <span className="font-mono text-sm text-primary">{value.toFixed(2)}</span>
+                                                <span className="font-mono text-sm text-primary">{value.toFixed(3)}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -146,8 +146,8 @@ export default function CipherCalculator() {
                                                     <TableRow key={step.index} className="border-primary/5 hover:bg-primary/5">
                                                         <TableCell className="font-mono text-muted-foreground">{step.index}</TableCell>
                                                         <TableCell className="font-bold">{step.char}</TableCell>
-                                                        <TableCell className="text-muted-foreground font-mono">{step.v_group.toFixed(2)}</TableCell>
-                                                        <TableCell className="text-left font-bold text-primary font-mono">{step.v_final.toFixed(1)}</TableCell>
+                                                        <TableCell className="text-muted-foreground font-mono">{step.v_group.toFixed(3)}</TableCell>
+                                                        <TableCell className="text-left font-bold text-primary font-mono">{step.v_final.toFixed(3)}</TableCell>
                                                     </TableRow>
                                                 ))}
                                             </TableBody>
@@ -172,13 +172,13 @@ export default function CipherCalculator() {
                                     <div className="flex justify-between items-end">
                                         <span className="text-sm text-muted-foreground italic">المجموع (الخطوة 4)</span>
                                         <span className="text-2xl font-bold tracking-tighter text-primary font-mono">
-                                            {result.grandTotal.toFixed(1)}
+                                            {result.grandTotal.toFixed(3)}
                                         </span>
                                     </div>
                                     <Separator className="bg-primary/10" />
                                     <div className="flex justify-between items-center bg-primary/5 p-3 rounded-lg border border-primary/10">
-                                        <span className="text-sm font-medium">الجزء الصحيح</span>
-                                        <span className="font-mono text-lg">{Math.floor(result.grandTotal)}</span>
+                                        <span className="text-sm font-medium">الجذز الرقمي</span>
+                                        <span className="font-mono text-lg">{result.digitalRoot}</span>
                                     </div>
                                 </CardContent>
                             </Card>
