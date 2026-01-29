@@ -71,8 +71,8 @@ export function calculateCipher(text: string): CalculationResult {
   // "Note if the number has decimals they must be reduced also. e.g. 123.123 equals 6.6"
   // "Note take only first 3 decimal places"
 
-  // Fix to 3 decimal places for consistency
-  const fixedTotal = parseFloat(grandTotal.toFixed(3));
+  // No rounding as per user request (was toFixed(3))
+  const fixedTotal = grandTotal;
   const digitalRoot = calculateDecimalAwareRoot(fixedTotal);
 
   return {
